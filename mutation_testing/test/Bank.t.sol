@@ -27,7 +27,7 @@ contract BankTest is Test {
         bank.deposit{value: startingBalance}();
         assertEq(bank.getBalance(user), startingBalance);
         bank.withdraw(50 ether);
-        assert(bank.getBalance(user) != startingBalance); //hmm
+        assert(bank.getBalance(user) != startingBalance); //correct line should be: assertEq(bank.getBalance(user), startingBalance - 50 ether);
         vm.stopPrank();
     }
 
